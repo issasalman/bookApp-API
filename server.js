@@ -26,7 +26,7 @@ const { getBooks } = require("./controllers/book.controller");
 const seedBook = require("./helper/bookSeed.seed");
 
 
-// seedBook();
+seedBook();
 
 
 app.get("/", getIndex);
