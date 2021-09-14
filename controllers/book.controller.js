@@ -1,5 +1,6 @@
 'use strict';
 
+const { request, response } = require('express');
 const bookModel = require('../models/book.model');
 const getBooks = (request, response) => {
 
@@ -29,6 +30,22 @@ const deleteBook = (request, response) => {
   });
 
 }
+const updateBook=(request,response )=>{
+
+const {title,description,status,email}  =request.body
+const bookId = request.params.book_id;
+bookModel.findByIdAndUpdate ({_id:bookId},{title,description,status,email},{new:true},(error,updatedBook )=> { 
+  response.json(updatedBook);
+}
+)
+}
+
+
+
+
+
+
+
 module.exports = {
-    getBooks,createBook,deleteBook
+    getBooks,createBook,deleteBook,updateBook
 }
