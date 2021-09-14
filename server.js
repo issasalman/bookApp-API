@@ -21,6 +21,7 @@ const {
   getBooks,
   createBook,
   deleteBook,
+  updateBook
 } = require("./controllers/book.controller");
 
 const seedBook = require("./helper/bookSeed.seed");
@@ -32,6 +33,8 @@ app.get("/", getIndex);
 app.get("/books", getBooks);
 app.post("/books", createBook);
 app.delete("/books/:book_id", deleteBook);
+app.put("/books/:book_id", updateBook);
+
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
