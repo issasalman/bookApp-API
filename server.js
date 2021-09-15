@@ -30,7 +30,7 @@ const seedBook = require("./helper/bookSeed.seed");
 
 app.get("/", getIndex);
 
-app.get("/books", getBooks);
+app.get("/books/:email", getBooks);
 app.post("/books", createBook);
 app.delete("/books/:book_id", deleteBook);
 app.put("/books/:book_id", updateBook);
