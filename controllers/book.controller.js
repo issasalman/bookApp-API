@@ -4,7 +4,7 @@ const { request, response } = require('express');
 const bookModel = require('../models/book.model');
 const getBooks = (request, response) => {
 
-    bookModel.find((error, booksData) => {
+    bookModel.find({ email: request.params.email },(error, booksData) => {
     response.json(booksData)
   });
 
